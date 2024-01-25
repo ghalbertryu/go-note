@@ -8,7 +8,7 @@ import (
 
 func TestCancel(t *testing.T) {
 	ctx, cancelFunc := context.WithCancel(context.Background())
-	go runFunc(ctx)
+	go runTimeTicker(ctx)
 
 	time.Sleep(3 * time.Second)
 	cancelFunc()
@@ -18,7 +18,7 @@ func TestCancel(t *testing.T) {
 func TestDeadline(t *testing.T) {
 	ctx, cancelFunc := context.WithDeadline(context.Background(), time.Now().Add(3*time.Second))
 	defer cancelFunc()
-	go runFunc(ctx)
+	go runTimeTicker(ctx)
 
 	time.Sleep(5 * time.Second)
 }
@@ -26,7 +26,7 @@ func TestDeadline(t *testing.T) {
 func TestTimeout(t *testing.T) {
 	ctx, cancelFunc := context.WithTimeout(context.Background(), 3*time.Second)
 	defer cancelFunc()
-	go runFunc(ctx)
+	go runTimeTicker(ctx)
 
 	time.Sleep(5 * time.Second)
 }

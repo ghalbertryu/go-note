@@ -6,7 +6,7 @@ import (
 	"time"
 )
 
-func runFunc(ctx context.Context) {
+func runTimeTicker(ctx context.Context) {
 	for range time.Tick(time.Second) {
 		select {
 		case <-ctx.Done():
