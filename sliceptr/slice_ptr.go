@@ -18,3 +18,10 @@ func buildIntSlice() []int {
 	}(s)
 	return s
 }
+
+func buildByteSlice() []byte {
+	s := []byte{65, 87, 90} // AWZ
+	fmt.Printf("Slice struct address: %p\n", &s)
+	fmt.Printf("Slice underlying array pointer: %p\n", s)
+	return s
+}
